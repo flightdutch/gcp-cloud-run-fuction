@@ -27,4 +27,4 @@ jobs:
           no_traffic: true
           # Дозволити публічний доступ (опціонально)
           # більше деталей помилки в консоль GitHub
-          flags: '--allow-unauthenticated --verbosity=debug'
+          flags: '--tag=test --allow-unauthenticated --verbosity=debug'
