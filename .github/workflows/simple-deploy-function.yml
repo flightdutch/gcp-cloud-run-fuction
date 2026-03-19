@@ -23,6 +23,8 @@ jobs:
           region: 'europe-west3'
           # Прапорець source вказує, що треба зібрати код з поточної папки
           source: './'
+          # параметр Canary Deployment: "Створи нову ревізію, але не направляй на неї трафік"
+          no_traffic: true
           # Дозволити публічний доступ (опціонально)
           # більше деталей помилки в консоль GitHub
           flags: '--allow-unauthenticated --verbosity=debug'
