@@ -1,1 +1,27 @@
+name: Simple Deploy Function to Cloud Run
+on:
+  push:
+    branches: [ main ]
 
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # 1. Авторизація через ваш JSON ключ
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v2'
+        with:
+          credentials_json: '${{ secrets.GCP_SA_KEY }}'
+
+      # 2. Деплой прямо з вихідного коду
+      - name: 'Deploy Function to Cloud Run'
+        uses: 'google-github-actions/deploy-cloudrun@v2'
+        with:
+          service: 'my-simple-function'
+          region: 'europe-west3'
+          # Прапорець source вказує, що треба зібрати код з поточної папки
+          source: './'
+          # Дозволити публічний доступ (опціонально)
+          flags: '--allow-unauthenticated'
