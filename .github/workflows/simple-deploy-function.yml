@@ -24,4 +24,5 @@ jobs:
           # Прапорець source вказує, що треба зібрати код з поточної папки
           source: './'
           # Дозволити публічний доступ (опціонально)
-          flags: '--allow-unauthenticated'
+          # більше деталей помилки в консоль GitHub
+          flags: '--allow-unauthenticated --verbosity=debug'
